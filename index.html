@@ -3,14 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benta</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Benta · Coming Soon</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <div class="container">
-        <h1>🔐 Benta</h1>
-        <p>กรุณาล็อกอินเพื่อเข้าใช้งาน</p>
-        <a href="login.html" class="btn">เข้าสู่ระบบด้วย Google</a>
+<body class="light-theme">
+    <div class="waitlist-container">
+        <!-- โลโก้ -->
+        <div class="waitlist-logo">🔷 Benta</div>
+        
+        <!-- เนื้อหาหลัก -->
+        <div class="waitlist-content">
+            <h1 class="waitlist-title">Coming soon!</h1>
+            <p class="waitlist-subtitle">Join our waitlist!</p>
+            <p class="waitlist-description">
+                Sign up for our newsletter to receive the latest<br>
+                updates and insights straight to your inbox.
+            </p>
+            
+            <!-- ฟอร์ม -->
+            <form class="waitlist-form" id="waitlist-form">
+                <input 
+                    type="email" 
+                    placeholder="Enter email" 
+                    required
+                >
+                <button type="submit">Join Waitlist</button>
+            </form>
+        </div>
+        
+        <!-- Footer -->
+        <div class="waitlist-footer">
+            <a href="login.html">เข้าสู่ระบบ</a>
+            <span>·</span>
+            <a href="#">เกี่ยวกับ</a>
+            <span>·</span>
+            <a href="#">ติดต่อ</a>
+        </div>
     </div>
+    
+    <script>
+        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert('ขอบคุณ! ' + email + ' ได้รับการลงทะเบียนแล้ว');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
