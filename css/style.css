@@ -1,1 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* ========== Light Theme ========== */
+.light-theme {
+    background: #fafafa;
+    color: #1a1a1a;
+    min-height: 100vh;
+}
+
+/* ========== Waitlist Container ========== */
+.waitlist-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 24px;
+    text-align: center;
+}
+
+.waitlist-logo {
+    font-size: 28px;
+    font-weight: 600;
+    color: #0066ff;
+    margin-bottom: 60px;
+    letter-spacing: -0.5px;
+}
+
+.waitlist-content {
+    max-width: 520px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.waitlist-title {
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    margin-bottom: 16px;
+    color: #111;
+}
+
+.waitlist-subtitle {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    color: #333;
+}
+
+.waitlist-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* ========== Form ========== */
+.waitlist-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.waitlist-form input {
+    padding: 16px 20px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.waitlist-form input:focus {
+    outline: none;
+    border-color: #0066ff;
+    box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
+}
+
+.waitlist-form button {
+    padding: 16px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    background: #0066ff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    font-family: 'Inter', sans-serif;
+}
+
+.waitlist-form button:hover {
+    background: #0052cc;
+    transform: scale(1.02);
+}
+
+/* ========== Footer ========== */
+.waitlist-footer {
+    margin-top: 80px;
+    color: #999;
+    font-size: 14px;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.waitlist-footer a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.waitlist-footer a:hover {
+    color: #0066ff;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 480px) {
+    .waitlist-title {
+        font-size: 48px;
+    }
+    .waitlist-subtitle {
+        font-size: 20px;
+    }
+    .waitlist-logo {
+        margin-bottom: 40px;
+    }
+}
