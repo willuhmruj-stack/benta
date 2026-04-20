@@ -3,56 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benta · Coming Soon</title>
+    <title>Benta · SEO Tool That Delivers Real Results</title>
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="light-theme">
-    <div class="waitlist-container">
-        <!-- โลโก้ -->
-        <div class="waitlist-logo">🔷 Benta</div>
-        
-        <!-- เนื้อหาหลัก -->
-        <div class="waitlist-content">
-            <h1 class="waitlist-title">Coming soon!</h1>
-            <p class="waitlist-subtitle">Join our waitlist!</p>
-            <p class="waitlist-description">
-                Sign up for our newsletter to receive the latest<br>
-                updates and insights straight to your inbox.
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-logo">🔷 Benta</div>
+            <div class="nav-links">
+                <a href="#">Features</a>
+                <a href="#">Pricing</a>
+                <a href="#">Testimonials</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-outline">Sign In</a>
+                <a href="#" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-badge">🚀 Boost your website's SEO</div>
+            <h1 class="hero-title">
+                SEO Tool That Delivers<br>
+                <span class="hero-title-highlight">Real Results</span>
+            </h1>
+            <p class="hero-description">
+                Best analytics app for agencies, consultants, affiliates, e-commerce, SaaS
             </p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary btn-large">Enter a Free Trial</a>
+                <a href="#" class="btn btn-outline btn-large">Watch Demo</a>
+            </div>
             
-            <!-- ฟอร์ม -->
-            <form class="waitlist-form" id="waitlist-form">
-                <input 
-                    type="email" 
-                    placeholder="Enter email" 
-                    required
-                >
-                <button type="submit">Join Waitlist</button>
-            </form>
+            <!-- Social Proof Logos -->
+            <div class="hero-logos">
+                <p class="logos-label">Trusted by industry leaders</p>
+                <div class="logos-grid">
+                    <span class="logo-item">Google</span>
+                    <span class="logo-item">AdWords</span>
+                    <span class="logo-item">LinkedIn</span>
+                </div>
+            </div>
         </div>
-        
-        <!-- Footer -->
-        <div class="waitlist-footer">
-            <a href="login.html">เข้าสู่ระบบ</a>
-            <span>·</span>
-            <a href="#">เกี่ยวกับ</a>
-            <span>·</span>
-            <a href="#">ติดต่อ</a>
+    </section>
+
+    <!-- Proven Results Section -->
+    <section class="proven">
+        <div class="container proven-container">
+            <div class="proven-header">
+                <h2 class="section-title">Proven SEO Results You Can Trust</h2>
+                <p class="section-subtitle">
+                    Our proven methods help you create amazing earnings from the web.<br>
+                    With our tools and strategies, you can achieve real results.
+                </p>
+            </div>
+            <div class="proven-content">
+                <div class="proven-card">
+                    <div class="proven-icon">📊</div>
+                    <h3>Real-Time Analytics</h3>
+                    <p>Track your rankings and traffic in real-time with our powerful dashboard.</p>
+                </div>
+                <div class="proven-card">
+                    <div class="proven-icon">🎯</div>
+                    <h3>Keyword Research</h3>
+                    <p>Find high-converting keywords that your competitors are missing.</p>
+                </div>
+                <div class="proven-card">
+                    <div class="proven-icon">🔗</div>
+                    <h3>Backlink Analysis</h3>
+                    <p>Monitor and improve your backlink profile for better authority.</p>
+                </div>
+            </div>
         </div>
-    </div>
-    
-    <script>
-        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('input[type="email"]').value;
-            alert('ขอบคุณ! ' + email + ' ได้รับการลงทะเบียนแล้ว');
-            this.reset();
-        });
-    </script>
+    </section>
+
+    <!-- Trusted By -->
+    <section class="trusted">
+        <div class="container trusted-container">
+            <div class="trusted-left">
+                <h2 class="section-title">Proven SEO Results<br>You Can Trust</h2>
+                <p>From strategic to industry leaders, we've helped businesses achieve remarkable results in record time.</p>
+                <div class="trusted-partner">
+                    <span class="partner-logo">Google</span>
+                    <span class="partner-logo">Search Console</span>
+                </div>
+            </div>
+            <div class="trusted-right">
+                <div class="trusted-stat">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Happy Clients</span>
+                </div>
+                <div class="trusted-stat">
+                    <span class="stat-number">1M+</span>
+                    <span class="stat-label">Keywords Tracked</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container pricing-container">
+            <div class="pricing-header">
+                <h2 class="section-title">Flexible Pricing for Every Business</h2>
+                <p class="section-subtitle">Choose the plan that fits your needs</p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Plan 1 -->
+                <div class="pricing-card">
+                    <h3 class="plan-name">Starter</h3>
+                    <div class="plan-price">$0<span class="plan-period">/month</span></div>
+                    <p class="plan-description">Perfect for beginners</p>
+                    <ul class="plan-features">
+                        <li>✓ 100 keyword trackings</li>
+                        <li>✓ Basic analytics</li>
+                        <li>✓ Email support</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline btn-block">Get Started</a>
+                </div>
+                <!-- Plan 2 -->
+                <div class="pricing-card pricing-card-featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <h3 class="plan-name">Professional</h3>
+                    <div class="plan-price">$19<span class="plan-period">/month</span></div>
+                    <p class="plan-description">For growing businesses</p>
+                    <ul class="plan-features">
+                        <li>✓ 1,000 keyword trackings</li>
+                        <li>✓ Advanced analytics</li>
+                        <li>✓ Priority support</li>
+                        <li>✓ Competitor analysis</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary btn-block">Start Free Trial</a>
+                </div>
+                <!-- Plan 3 -->
+                <div class="pricing-card">
+                    <h3 class="plan-name">Enterprise</h3>
+                    <div class="plan-price">$39<span class="plan-period">/month</span></div>
+                    <p class="plan-description">For large teams</p>
+                    <ul class="plan-features">
+                        <li>✓ Unlimited keyword trackings</li>
+                        <li>✓ Full analytics suite</li>
+                        <li>✓ 24/7 dedicated support</li>
+                        <li>✓ API access</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline btn-block">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container testimonials-container">
+            <h2 class="section-title">What People Say About Us</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Benta has transformed how we approach SEO. Our traffic increased by 200% in just 3 months."</p>
+                    <div class="testimonial-author">
+                        <strong>Sarah Johnson</strong>
+                        <span>Marketing Director, TechCorp</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The best SEO tool we've ever used. The insights are actionable and easy to understand."</p>
+                    <div class="testimonial-author">
+                        <strong>Michael Chen</strong>
+                        <span>Founder, GrowthLabs</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"From keyword research to rank tracking, Benta covers everything we need. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <strong>Emily Rodriguez</strong>
+                        <span>SEO Consultant</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container faq-container">
+            <h2 class="section-title">Your Questions Answered</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>How does the free trial work?</h4>
+                    <p>You can try Benta free for 14 days. No credit card required.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I cancel anytime?</h4>
+                    <p>Yes, you can cancel your subscription at any time with no hidden fees.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do you offer discounts?</h4>
+                    <p>We offer annual plans with up to 30% discount. Contact us for more details.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is my data secure?</h4>
+                    <p>Absolutely. We use industry-standard encryption to protect your data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">🔷 Benta</div>
+                <p>SEO Tool That Delivers Real Results</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h5>Product</h5>
+                    <a href="#">Features</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">Demo</a>
+                </div>
+                <div class="footer-column">
+                    <h5>Company</h5>
+                    <a href="#">About</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Careers</a>
+                </div>
+                <div class="footer-column">
+                    <h5>Support</h5>
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Status</a>
+                </div>
+                <div class="footer-column">
+                    <h5>Legal</h5>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Benta. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
-</html>
+                            </html>
