@@ -3,168 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ล็อกอิน · Benta</title>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>เข้าสู่ระบบ · Benta</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
     
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Prompt', sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        .login-box {
-            max-width: 400px;
-            width: 100%;
-            background: rgba(20, 20, 40, 0.8);
-            backdrop-filter: blur(15px);
-            border-radius: 24px;
-            padding: 40px 30px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-        }
-        .login-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 20px;
-            background: linear-gradient(145deg, #2a2a4a, #1a1a3a);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 30px;
-        }
-        h2 {
-            color: #fff;
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        p {
-            color: #aaa;
-            font-size: 14px;
-            margin-bottom: 30px;
-        }
-        .google-btn {
-            background: rgba(255, 255, 255, 0.05);
-            color: #ddd;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 16px 25px;
-            border-radius: 60px;
-            cursor: pointer;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            transition: all 0.3s ease;
-            font-family: 'Prompt', sans-serif;
-            font-size: 16px;
-        }
-        .google-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
-            color: #fff;
-            transform: translateY(-2px);
-        }
-        .logout-btn {
-            background: rgba(220, 53, 69, 0.1);
-            color: #ff6b6b;
-            border: 1px solid rgba(220, 53, 69, 0.2);
-            padding: 14px 25px;
-            border-radius: 60px;
-            cursor: pointer;
-            font-weight: 500;
-            width: 100%;
-            margin-top: 12px;
-            transition: all 0.3s ease;
-            font-family: 'Prompt', sans-serif;
-            font-size: 16px;
-        }
-        .logout-btn:hover {
-            background: rgba(220, 53, 69, 0.2);
-        }
-        .home-btn {
-            background: rgba(255, 255, 255, 0.05);
-            color: #ccc;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 14px 25px;
-            border-radius: 60px;
-            cursor: pointer;
-            font-weight: 500;
-            width: 100%;
-            margin-top: 10px;
-            transition: all 0.3s ease;
-            font-family: 'Prompt', sans-serif;
-            font-size: 16px;
-        }
-        .home-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-        }
-        .profile-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin: 10px auto 15px;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            object-fit: cover;
-        }
-        .user-name {
-            color: #fff;
-            font-size: 20px;
-            font-weight: 500;
-            margin-bottom: 5px;
-        }
-        .user-email {
-            color: #777;
-            font-size: 13px;
-            margin-bottom: 20px;
-            word-break: break-all;
-        }
-        #error-message {
-            margin-top: 15px;
-            color: #ff6b6b;
-            font-size: 14px;
-        }
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            color: #666;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        .back-link:hover {
-            color: #888;
-        }
-    </style>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
 </head>
-<body>
-    <div class="login-box">
-        <div class="login-icon">🔐</div>
+<body class="auth-page">
+    <div class="auth-container">
+        <!-- การ์ดล็อกอิน -->
+        <div class="auth-card">
+            <!-- โลโก้ -->
+            <a href="index.html" class="auth-logo">🔷 Benta</a>
+            
+            <!-- หัวข้อ -->
+            <h1 class="auth-title">ยินดีต้อนรับกลับมา</h1>
+            <p class="auth-subtitle">ลงชื่อเข้าใช้เพื่อดำเนินการต่อ</p>
+            
+            <!-- จุดแสดงผล (เปลี่ยนตามสถานะล็อกอิน) -->
+            <div id="auth-render-area"></div>
+            
+            <!-- ลิงก์กลับ -->
+            <a href="index.html" class="auth-footer-link">← กลับหน้าหลัก</a>
+        </div>
         
-        <div id="auth-container">
-            <!-- JavaScript จะ render ที่นี่ -->
+        <!-- Footer -->
+        <div class="auth-footer">
+            <p>&copy; 2026 Benta. All rights reserved.</p>
         </div>
     </div>
 
     <script>
-        // Firebase Config (ของเดิมจาก godruj-cf845)
+        // ========== Firebase Config ==========
         const firebaseConfig = {
             apiKey: "AIzaSyDUotTGRXmMNGRmVqwAZQaWPuoJLSVQzTE",
             authDomain: "godruj-cf845.firebaseapp.com",
@@ -175,67 +52,181 @@
         };
 
         // เริ่มต้น Firebase
-        firebase.initializeApp(firebaseConfig);
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        
         const auth = firebase.auth();
+        const db = firebase.firestore();
         const provider = new firebase.auth.GoogleAuthProvider();
         
-        const container = document.getElementById('auth-container');
+        const renderArea = document.getElementById('auth-render-area');
         
-        // หน้า Login
+        // ========== หน้าล็อกอิน ==========
         function renderLogin() {
-            container.innerHTML = `
-                <h2>ยินดีต้อนรับ</h2>
-                <p>ลงชื่อเข้าใช้ด้วย Google</p>
-                <button id="google-login-btn" class="google-btn">
+            renderArea.innerHTML = `
+                <button id="google-login-btn" class="auth-btn auth-btn-google">
                     <svg width="20" height="20" viewBox="0 0 24 24">
                         <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                         <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
                         <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
                         <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
                     </svg>
-                    ล็อกอินด้วย Google
+                    ดำเนินการต่อด้วย Google
                 </button>
-                <p id="error-message"></p>
-                <a href="index.html" class="back-link">⬅️ กลับหน้าหลัก</a>
+                
+                <div class="auth-divider">
+                    <span>หรือ</span>
+                </div>
+                
+                <form id="email-login-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="email">อีเมล</label>
+                        <input type="email" id="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">รหัสผ่าน</label>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="auth-btn auth-btn-primary">เข้าสู่ระบบ</button>
+                </form>
+                
+                <p id="login-error" class="auth-error"></p>
+                <p class="auth-switch">
+                    ยังไม่มีบัญชี? <a href="#" id="show-signup">สมัครสมาชิก</a>
+                </p>
             `;
             
-            document.getElementById('google-login-btn').addEventListener('click', () => {
-                auth.signInWithPopup(provider)
-                    .catch(error => {
-                        document.getElementById('error-message').innerText = '❌ ' + error.message;
-                    });
+            // Google Login
+            document.getElementById('google-login-btn').addEventListener('click', async () => {
+                try {
+                    await auth.signInWithPopup(provider);
+                    window.location.href = 'home.html';
+                } catch (error) {
+                    document.getElementById('login-error').innerText = '❌ ' + error.message;
+                }
+            });
+            
+            // Email Login (ตัวอย่าง - ต้องเปิดใน Firebase ก่อน)
+            document.getElementById('email-login-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                try {
+                    await auth.signInWithEmailAndPassword(email, password);
+                    window.location.href = 'home.html';
+                } catch (error) {
+                    document.getElementById('login-error').innerText = '❌ ' + error.message;
+                }
+            });
+            
+            // เปลี่ยนเป็นหน้าสมัคร
+            document.getElementById('show-signup').addEventListener('click', (e) => {
+                e.preventDefault();
+                renderSignup();
             });
         }
         
-        // หน้าหลังล็อกอิน
-        function renderProfile(user) {
-            container.innerHTML = `
-                <h2>✅ ล็อกอินสำเร็จ</h2>
-                <img src="${user.photoURL}" class="profile-image" alt="Profile">
-                <div class="user-name">${user.displayName}</div>
-                <div class="user-email">${user.email}</div>
+        // ========== หน้าสมัครสมาชิก ==========
+        function renderSignup() {
+            renderArea.innerHTML = `
+                <form id="signup-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="signup-name">ชื่อ</label>
+                        <input type="text" id="signup-name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">อีเมล</label>
+                        <input type="email" id="signup-email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">รหัสผ่าน</label>
+                        <input type="password" id="signup-password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="auth-btn auth-btn-primary">สมัครสมาชิก</button>
+                </form>
                 
-                <button id="home-btn" class="home-btn">🏠 ไปหน้าหลัก</button>
-                <button id="logout-btn" class="logout-btn">ออกจากระบบ</button>
+                <div class="auth-divider"><span>หรือ</span></div>
+                
+                <button id="google-signup-btn" class="auth-btn auth-btn-google">
+                    <svg width="20" height="20" viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                    </svg>
+                    สมัครด้วย Google
+                </button>
+                
+                <p id="signup-error" class="auth-error"></p>
+                <p class="auth-switch">
+                    มีบัญชีอยู่แล้ว? <a href="#" id="show-login">เข้าสู่ระบบ</a>
+                </p>
             `;
             
-            document.getElementById('home-btn').addEventListener('click', () => {
+            // Google Signup
+            document.getElementById('google-signup-btn').addEventListener('click', async () => {
+                try {
+                    await auth.signInWithPopup(provider);
+                    window.location.href = 'home.html';
+                } catch (error) {
+                    document.getElementById('signup-error').innerText = '❌ ' + error.message;
+                }
+            });
+            
+            // Email Signup
+            document.getElementById('signup-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('signup-email').value;
+                const password = document.getElementById('signup-password').value;
+                const name = document.getElementById('signup-name').value;
+                try {
+                    const result = await auth.createUserWithEmailAndPassword(email, password);
+                    await result.user.updateProfile({ displayName: name });
+                    window.location.href = 'home.html';
+                } catch (error) {
+                    document.getElementById('signup-error').innerText = '❌ ' + error.message;
+                }
+            });
+            
+            // กลับไปหน้า login
+            document.getElementById('show-login').addEventListener('click', (e) => {
+                e.preventDefault();
+                renderLogin();
+            });
+        }
+        
+        // ========== หน้าหลังล็อกอิน (ถ้าล็อกอินอยู่แล้ว) ==========
+        function renderLoggedIn(user) {
+            renderArea.innerHTML = `
+                <div class="auth-profile">
+                    <img src="${user.photoURL || 'https://via.placeholder.com/80'}" alt="Profile" class="auth-avatar">
+                    <h3>${user.displayName || 'ผู้ใช้'}</h3>
+                    <p>${user.email}</p>
+                    
+                    <button id="continue-btn" class="auth-btn auth-btn-primary">ไปหน้าหลัก</button>
+                    <button id="logout-btn" class="auth-btn auth-btn-outline">ออกจากระบบ</button>
+                </div>
+            `;
+            
+            document.getElementById('continue-btn').addEventListener('click', () => {
                 window.location.href = 'home.html';
             });
             
-            document.getElementById('logout-btn').addEventListener('click', () => {
-                auth.signOut();
+            document.getElementById('logout-btn').addEventListener('click', async () => {
+                await auth.signOut();
+                renderLogin();
             });
         }
         
-        // เช็คสถานะล็อกอิน
+        // ========== เช็คสถานะล็อกอิน ==========
         auth.onAuthStateChanged(user => {
             if (user) {
-                renderProfile(user);
+                renderLoggedIn(user);
             } else {
                 renderLogin();
             }
         });
     </script>
 </body>
-  </html>
+</html>
