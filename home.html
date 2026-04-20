@@ -1,1 +1,237 @@
 
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แดชบอร์ด · Benta</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+</head>
+<body class="dashboard-page">
+    <!-- Navbar -->
+    <nav class="navbar dashboard-navbar">
+        <div class="container nav-container">
+            <div class="nav-logo">🔷 Benta</div>
+            <div class="nav-links">
+                <a href="home.html" class="active">แดชบอร์ด</a>
+                <a href="#">Analytics</a>
+                <a href="#">Reports</a>
+                <a href="#">Settings</a>
+            </div>
+            <div class="nav-user">
+                <div id="user-profile-trigger" class="user-profile-trigger">
+                    <img id="user-avatar" src="" alt="Profile" class="user-avatar-small">
+                    <span id="user-name-display"></span>
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+                <div id="user-dropdown" class="user-dropdown hidden">
+                    <a href="#" id="logout-btn">ออกจากระบบ</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <h1>ยินดีต้อนรับกลับมา, <span id="welcome-name"></span>! 👋</h1>
+                <p>นี่คือภาพรวมของประสิทธิภาพ SEO ของคุณวันนี้</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Total Keywords</span>
+                        <span class="stat-value">1,247</span>
+                        <span class="stat-change positive">↑ 12%</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Avg. Position</span>
+                        <span class="stat-value">8.4</span>
+                        <span class="stat-change positive">↑ 2.1</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🔗</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Backlinks</span>
+                        <span class="stat-value">3.2K</span>
+                        <span class="stat-change positive">↑ 8%</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">👁️</div>
+                    <div class="stat-content">
+                        <span class="stat-label">Organic Traffic</span>
+                        <span class="stat-value">8,942</span>
+                        <span class="stat-change positive">↑ 24%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h2>Quick Actions</h2>
+                <div class="actions-grid">
+                    <div class="action-card">
+                        <div class="action-icon">🔍</div>
+                        <h3>Keyword Research</h3>
+                        <p>ค้นหาคีย์เวิร์ดใหม่ๆ สำหรับแคมเปญของคุณ</p>
+                        <a href="#" class="btn btn-outline btn-small">เริ่มค้นหา</a>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon">📈</div>
+                        <h3>Site Audit</h3>
+                        <p>ตรวจสอบสุขภาพเว็บไซต์ของคุณ</p>
+                        <a href="#" class="btn btn-outline btn-small">เริ่มตรวจสอบ</a>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon">📋</div>
+                        <h3>Competitor Analysis</h3>
+                        <p>วิเคราะห์คู่แข่งของคุณ</p>
+                        <a href="#" class="btn btn-outline btn-small">เริ่มวิเคราะห์</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="recent-activity">
+                <h2>Recent Activity</h2>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">📊</div>
+                        <div class="activity-content">
+                            <p><strong>Site audit completed</strong></p>
+                            <span class="activity-time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">🔍</div>
+                        <div class="activity-content">
+                            <p><strong>Keyword research report generated</strong></p>
+                            <span class="activity-time">Yesterday</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">📈</div>
+                        <div class="activity-content">
+                            <p><strong>Weekly ranking update available</strong></p>
+                            <span class="activity-time">2 days ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // ========== Firebase Config ==========
+        const firebaseConfig = {
+            apiKey: "AIzaSyDUotTGRXmMNGRmVqwAZQaWPuoJLSVQzTE",
+            authDomain: "godruj-cf845.firebaseapp.com",
+            projectId: "godruj-cf845",
+            storageBucket: "godruj-cf845.firebasestorage.app",
+            messagingSenderId: "842695726741",
+            appId: "1:842695726741:web:11c1de5cc7458bf4cfad9c"
+        };
+
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        // ========== UI Elements ==========
+        const userAvatar = document.getElementById('user-avatar');
+        const userNameDisplay = document.getElementById('user-name-display');
+        const welcomeName = document.getElementById('welcome-name');
+        const userProfileTrigger = document.getElementById('user-profile-trigger');
+        const userDropdown = document.getElementById('user-dropdown');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        // ========== Check Auth State ==========
+        auth.onAuthStateChanged(user => {
+            if (!user) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // แสดงข้อมูลผู้ใช้
+            const displayName = user.displayName || user.email?.split('@')[0] || 'User';
+            const photoURL = user.photoURL || 'https://via.placeholder.com/40';
+
+            userAvatar.src = photoURL;
+            userNameDisplay.textContent = displayName;
+            welcomeName.textContent = displayName;
+
+            // ถ้ายังไม่มี displayName (สมัครด้วย Email) อาจจะดึงจาก Firestore หรือใช้ค่าเริ่มต้น
+            if (!user.displayName && user.email) {
+                welcomeName.textContent = user.email.split('@')[0];
+                userNameDisplay.textContent = user.email.split('@')[0];
+            }
+        });
+
+        // ========== Toggle Dropdown ==========
+        userProfileTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            userDropdown.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', () => {
+            userDropdown.classList.add('hidden');
+        });
+
+        // ========== Logout ==========
+        logoutBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            try {
+                await auth.signOut();
+                window.location.href = 'login.html';
+            } catch (error) {
+                console.error('Logout error:', error);
+            }
+        });
+
+        // ========== Load User Data from Firestore (Optional) ==========
+        async function loadUserData(user) {
+            if (!user) return;
+            
+            try {
+                const userDoc = await db.collection('users').doc(user.uid).get();
+                if (userDoc.exists) {
+                    const userData = userDoc.data();
+                    // สามารถอัปเดต UI เพิ่มเติมได้ที่นี่
+                    console.log('User data loaded:', userData);
+                }
+            } catch (error) {
+                console.error('Error loading user data:', error);
+            }
+        }
+
+        // เรียกใช้เมื่อมี user
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                loadUserData(user);
+            }
+        });
+    </script>
+</body>
+  </html>
